@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+
+    </div>
+
+    <script>
+        const app = document.querySelector('#app');
+
+        const elements = [];
+        const tasks = [
+            {
+                title: 'Go to the store',
+                completed: true
+            },
+            {
+                title: 'Finish homework',
+                completed: false
+            },
+            {
+                title: 'Make dinner',
+                completed: false
+            },
+            {
+                title: 'Clean room',
+                completed: true
+            },
+            {
+                title: 'Sleep',
+                completed: false
+            }
+        ];
+
+        tasks.forEach(task => {
+            const completed = document.createElement('input');
+            completed.type = 'checkbox';
+            completed.checked = task.completed;
+
+            const title = document.createElement('span');
+            title.textContent = task.title;
+
+            const container = document.createElement('div');
+            container.append(completed, title);
+
+            elements.push(container);
+        });
+
+        app.append(...elements);
+
+    </script>
+</body>
+
+</html>
